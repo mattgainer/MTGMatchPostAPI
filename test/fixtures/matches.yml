@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  deck_id: 1
+  writeup: MyText
+  result_id: 1
+  opposing_archetype_id: 1
+
+two:
+  deck_id: 1
+  writeup: MyText
+  result_id: 1
+  opposing_archetype_id: 1
