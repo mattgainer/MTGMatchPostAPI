@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20180104224944) do
     t.boolean "in"
     t.integer "quantity"
     t.integer "deck_card_id"
+    t.integer "match_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

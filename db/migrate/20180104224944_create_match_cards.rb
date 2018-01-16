@@ -4,6 +4,7 @@ class CreateMatchCards < ActiveRecord::Migration[5.1]
       t.boolean :in
       t.integer :quantity
       t.integer :deck_card_id
+      t.integer :match_id
 
       t.timestamps
     end
