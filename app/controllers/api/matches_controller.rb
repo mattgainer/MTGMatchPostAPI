@@ -15,7 +15,16 @@ class Api::MatchesController < ApplicationController
     render json: {matches: @matches.as_json(
         include: [
           {
-            deck: {include: [:user, {archetype: {include: :format}}]}
+            deck: {
+              include: [
+                :user,
+                {
+                  archetype: {
+                    include: :format
+                  }
+                }
+              ]
+            }
           },
           :opposing_archetype,
           :result
@@ -24,6 +33,33 @@ class Api::MatchesController < ApplicationController
     }
   end
 
+  def show
+    @match = Match.find(params[:id])
+    render json: {
+      match: @match.as_json(
+        include: [
+          {
+            deck: {
+              include: [
+                :user,
+                {
+                  archetype: {include: :format}
+                },
+                :deck_cards
+              ]
+            }
+          },
+          :opposing_archetype,
+          :result,
+          {
+            match_cards: {
+              include: :deck_card
+            }
+          },
+        ]
+      )
+    }
+  end
   def create
     @match = Match.new(match_params)
     if @match.save
